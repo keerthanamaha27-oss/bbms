@@ -1,0 +1,14 @@
+node_modules
+vendor
+.git
+.env
+/storage/*.log
+.DS_Store
+npm-debug.log
+*.log
+admin_image/
+image/
+sql/*.sql
+.vscode/
+.idea/
+docker-compose.yml
