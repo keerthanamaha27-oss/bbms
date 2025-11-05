@@ -26,21 +26,4 @@ EXPOSE 80
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 CMD ["apache2-foreground"]
-# Minimal PHP + Apache Dockerfile
-FROM php:8.2-apache
-
-# Install common extensions and composer if needed
-RUN apt-get update && apt-get install -y \
-    libzip-dev zip unzip git \
-  && docker-php-ext-install pdo pdo_mysql zip \
-  && a2enmod rewrite
-
-# Copy project into container
-COPY . /var/www/html/
-
-# Ensure permissions (adjust as needed)
-RUN chown -R www-data:www-data /var/www/html
-
-# Expose default port (Render uses internal port 10000 by default; no change required)
-EXPOSE 80
 
